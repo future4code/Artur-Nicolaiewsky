@@ -1,0 +1,28 @@
+/* Início do main */
+
+main {
+    background-color: rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    padding-bottom: 10vh;
+}
+
+main img {
+    margin-top: 25px;
+    width: 100px;
+    height: 100px;
+    margin-right: 15px;
+}
+
+td {
+    padding-left: 10px;
+    border: solid;
+}
+
+table {
+    border: solid
+}
+
+

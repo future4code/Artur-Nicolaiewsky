@@ -1,0 +1,20 @@
+/* Início do main */
+
+main {
+    background-color: rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    padding-bottom: 10vh;
+}
+
+main img {
+    margin-top: 25px;
+    width: 200px;
+    height: 200px;
+    margin-left: 15px;
+}
+
+
+
