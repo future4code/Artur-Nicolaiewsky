@@ -78,7 +78,11 @@ div img {
 }
 
 #container-de-descricao>ol {
-    padding: 15px 0px;
+    padding: 15px 0;
+    list-style: decimal;
+    display: inline-block;
+    text-align: center;
+    width: 250px ;
 }
 
 #container-para-comprar {
