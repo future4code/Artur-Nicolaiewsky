@@ -1,0 +1,415 @@
+* {
+    margin: 0;
+    text-decoration: none;
+    font-family: 'Source Code Pro', monospace;
+    outline: none;
+}
+
+main {
+    width: 90vw;
+    margin: 0 auto;
+
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cinza {
+    background-color: rgb(240, 240, 240);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    
+}
+
+/* CABEÇALHO */
+
+header {
+    background-color: rgba(0,0,255,0.8);
+    font-size: 1.5rem;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header a{
+    color: white;
+}
+
+.button-clean {
+    border: solid 2px white;
+    padding: 0.5rem;
+}
+
+/* Título */
+
+h1 {
+    margin-top: 5rem;
+    margin-bottom: 1.5rem;
+    font-size: 3rem;
+    
+    text-shadow: 0px 0px 1px black; 
+}
+
+.subtit {
+    padding-top: 1rem;
+    margin-bottom: 5rem;
+}
+
+/* Skills */
+
+h2 {
+    margin-bottom: 5rem;
+    
+    padding-top: 4rem;
+}
+
+.skills {
+    display: flex;
+    margin-bottom: 5rem;
+
+    
+    
+    border: rgba(36, 105, 253, 1);
+    box-shadow: 1.5px 1.5px 10px 0.5px rgb(36, 105, 253, 1);
+    
+    border-radius: 15px;
+}
+
+.boxSkill {
+    width: 350px;
+
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+
+    border-right: solid 1px gainsboro;
+}
+
+.skills img {
+
+    width: 350px;
+    height: 210px;
+}
+
+.comunicacaoImg {
+    border-radius: 0 12px 0 0;
+}
+
+.frontendImg {
+    border-radius: 12px 0 0 0;
+}
+
+.skills h3 {
+    width: auto;
+    border: none;
+}
+
+h3 {
+    width: 200px;
+    margin-top: .7rem;
+    margin-bottom: .5rem;
+    padding-bottom: .5rem;
+    text-align: center;
+
+    border-bottom: solid 1px gainsboro;
+    
+}
+
+p {
+    padding: 0 0.5rem;
+    margin-bottom: 0.75rem;
+
+    
+    padding: 0 2rem;
+}
+
+ul {
+    margin-bottom: 1rem;
+}
+
+.liTopo {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    list-style: none;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+/* Projetos */
+
+
+.box {
+    width: 300px;
+    margin: 0 50px;
+    border-radius: 15px;
+
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    
+    border: rgba(36, 105, 253, 1);
+    box-shadow: 1.5px 1.5px 10px 0.5px rgb(36, 105, 253, 1);
+    
+}
+
+.box:hover {
+    box-shadow: 1.5px 1.5px 15px 0.5px rgb(36, 105, 253, 1);
+}
+
+.projetosA {
+    display: flex;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.projetosA .box {
+    width: 200px;
+}
+
+.projetosA img {
+    width: 200px;
+    height: 133px;
+    border-radius: 12px 12px 0 0;
+}
+
+.projetosA a {
+    color: black;
+
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.projetosB {
+    display: flex;
+    margin-bottom: 5rem;
+    text-align: center;
+}
+
+.projetosB img {
+    width: 200px;
+    height: 133px;
+    border-radius: 12px 12px 0 0;
+}
+
+.projetosB .box {
+    width: 200px;
+    
+}
+
+.projetosB a {
+    color: black;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.amparo {
+
+    border:rgb(28, 2, 255);
+    box-shadow: 1.5px 1.5px 10px 0.5px rgb(28, 2, 255);
+}
+
+.amparo:hover {
+    box-shadow: 1.5px 1.5px 15px 0.5px rgb(28, 2, 255);
+}
+
+.primeiro-site {
+    
+    border:rgb(56, 2, 145);
+    box-shadow: 1.5px 1.5px 10px 0.5px rgb(56, 2, 145);
+}
+
+.primeiro-site:hover {
+    box-shadow: 1.5px 1.5px 15px 0.5px rgb(56, 2, 145);
+}
+
+/* Estudos (todas as box foram tiradas do projetos acima*/
+
+.estudos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 4rem;
+}
+
+.estudos img {
+    height: 133px;
+}
+
+.labenu {
+    border:rgb(253, 152, 36);
+    box-shadow: 1.5px 1.5px 10px 0.5px rgb(253, 152, 36);
+}
+
+.labenu:hover {
+    box-shadow: 1.5px 1.5px 15px 0.5px rgb(253, 152, 36);
+}
+
+/* Quem sou eu? */
+
+.quem-sou-eu,
+.redes-sociais {
+    display: flex;
+}
+
+.bio {
+    text-align: justify;
+    max-width: 50vw;
+
+    margin-bottom: 5rem;
+}
+
+.quem-sou-eu img,
+.redes-sociais img {
+    width: 200px;
+    height: 80px;
+    border-radius: 12px 12px 0 0;
+}
+
+.quem-sou-eu .box,
+.redes-sociais .box {
+    width: 200px;
+    cursor: pointer;
+}
+
+.quem-sou-eu h3,
+.redes-sociais h3 {
+    border: none;
+}
+
+.linkedin {
+    border: rgba(36, 105, 253, 1);
+    box-shadow: 1.5px 1.5px 10px 0.5px rgb(36, 105, 253, 1);
+    
+}
+
+.linkedin:hover {
+    box-shadow: 1.5px 1.5px 15px 0.5px rgb(36, 105, 253, 1);
+    
+}
+
+.face {
+    border: rgb(0, 81, 255);
+    box-shadow: 1.5px 1.5px 10px 0.5px rgb(0, 81, 255);
+
+}
+
+.face:hover {
+    box-shadow: 1.5px 1.5px 15px 0.5px rgb(0, 81, 255);
+    
+
+}
+
+.insta {
+    border: rgb(218, 18, 85);
+    box-shadow: 1.5px 1.5px 10px 0.5px rgb(218, 18, 85);
+    
+}
+
+.insta:hover {
+    box-shadow: 1.5px 1.5px 15px 0.5px rgb(218, 18, 85);
+    
+
+}
+
+.whats {
+    border: green;
+    box-shadow: 1.5px 1.5px 10px 0.5px green;
+
+}
+
+.whats:hover {
+    box-shadow: 1.5px 1.5px 15px 0.5px green;
+    
+
+}
+
+.github {
+    border: black;
+    box-shadow: 1.5px 1.5px 10px 0.5px black;
+
+}
+
+.github:hover {
+    box-shadow: 1.5px 1.5px 15px 0.5px black;
+    
+
+}
+
+.gmail {
+    border: rgba(255, 0, 0, 0.7);
+    box-shadow: 1.5px 1.5px 10px 0.5px rgba(255, 0, 0, 0.7);
+}
+
+.gmail:hover {
+    box-shadow: 1.5px 1.5px 15px 0.5px rgba(255, 0, 0, 0.7);
+    
+
+}
+
+.quem-sou-eu {
+    
+    margin-bottom: 3rem;
+}
+
+.redes-sociais {
+    margin-bottom: 5rem;
+}
+
+/* Contato */
+
+.contato {
+    padding-bottom: 10rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    width: 40rem;
+    height: 2rem;
+
+    padding: .5rem;
+
+    margin-bottom: 1rem;
+    border: none;
+    box-shadow: 1.5px 1.5px 10px 0.5px rgb(36, 105, 253, 1);
+
+    border-radius: 15px;
+}
+
+.msg {
+    height: 6rem;
+}
+
+button {
+    margin-top: 1rem;
+    border: none;
+    padding: .9rem;
+    font-size: .9rem;
+    color: white;
+    background-color: rgba(0,0,255,0.8);
+    cursor: pointer;
+
+    border-radius: 15px;
+}
+
+button:hover {
+    
+    background-color: rgba(0, 38, 255, 0.8)
+}
