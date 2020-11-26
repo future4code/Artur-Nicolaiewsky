@@ -1,0 +1,46 @@
+main {
+    display: flex;
+    
+    
+}
+
+#side {
+    width: 15vw;
+    background-color: gainsboro;
+
+    display: flex;
+    flex-direction: column;
+}
+
+section {
+    margin: auto;
+    margin-top: 30px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-row: 1fr 1fr;
+    gap: 30px;
+}
+
+article img {
+    width: 15vw;
+}
+
+@media screen and (max-width: 769px) {
+
+    #side {
+        display: none;
+    }
+
+    section {
+
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    article img {
+        width: 60vw;
+    }
+
+}
