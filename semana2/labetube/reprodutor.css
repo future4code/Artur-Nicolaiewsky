@@ -1,0 +1,44 @@
+main {
+    display: flex;
+    justify-content: space-between;
+}
+
+#reprodutor {
+    margin: 30px;
+}
+
+video {
+    width: 60vw;
+}
+
+#sugestoes {
+    padding: 3vw;
+    background-color: gainsboro;
+}
+article a {
+    display: flex;
+    margin-bottom: 2vh;
+    padding-bottom: 2vh;
+    border-bottom: 1px solid;
+}
+
+img {
+    width: 100px;
+    margin-right: 1vw;
+}
+
+@media screen and (max-width: 769px) {
+
+    main {
+        flex-direction: column;  
+    }
+
+    #reprodutor {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    video {
+        width: 80vw;
+    }
+}
