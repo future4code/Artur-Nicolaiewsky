@@ -70,11 +70,13 @@ if(confirm("Quer iniciar uma nova rodada?")) {
          i++
    }
 
-  // jogador 1
+   somaComputador = Number(somaComputador)
+
+  // jogador
 
   console.log(respostaUsuario.join([separador = ' ']))
 
-  // jogador 2
+  // computador
   
   console.log(respostaComputador.join([separador = ' ']))
 
@@ -82,14 +84,16 @@ if(confirm("Quer iniciar uma nova rodada?")) {
 
      console.log("Empate!")
 
-  } else if(somaUsuario > somaComputador < 22 && somaUsuario < 22 ) {
+  } else if(22 > somaUsuario > somaComputador || somaComputador > 22) {
 
      console.log("O usuário ganhou!")
 
-  } else if (22 > somaUsuario < somaComputador && somaComputador < 22){
+  } else if ( somaUsuario < somaComputador < 22 || somaUsuario < 22){
 
      console.log("O computador ganhou!")
      
+  } else {
+     console.log("bugou")
   }
 
 
