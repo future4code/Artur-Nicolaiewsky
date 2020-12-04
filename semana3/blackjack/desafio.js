@@ -42,43 +42,47 @@ if(confirm("Quer iniciar uma nova rodada?")) {
 
    i=2  
 
-   let pergunta = ["Suas cartas são " + usuarioArray[0].texto + " " + usuarioArray[1].texto + " " + ". A carta revelada do computador é " + computadorArray[0].texto + "." +
-   "\n" + "Deseja comprar mais uma carta?"]
+   let pergunta = ["Suas cartas são " , usuarioArray[0].texto , usuarioArray[1].texto , ". A carta revelada do computador é " , computadorArray[0].texto , "." ,
+   "\n" , "Deseja comprar mais uma carta?"]
 
-   while(somaUsuario < 21 && confirm( pergunta )) {
+   let respostaUsuario = ["Usuário - cartas: ", usuarioArray[0].texto , usuarioArray[1].texto , " - pontuação ", Number(somaUsuario)]
+   let respostaComputador = ["Computador - cartas: ", computadorArray[0].texto , computadorArray[1].texto , " - pontuação ", Number(somaComputador)]
+
+   while(somaUsuario < 21 && confirm( pergunta.join([separador = ' ']) )) {
 
          usuarioArray.push(comprarCarta())
-         somaUsuario = Number(somaUsuario) + Number(usuarioArray[i].valor)
-         pergunta.splice(4, 0, usuarioArray[i].texto, " ")
+         pergunta.splice(3, 0, usuarioArray[i].texto)
+         respostaUsuario.splice(2, 0, usuarioArray[i].texto)
+         respostaUsuario.pop()
+         somaUsuario = Number(usuarioArray[0].valor) + Number(usuarioArray[1].valor) + Number(usuarioArray[i].valor)
+         respostaUsuario.push(Number(somaUsuario))
          i++
    }
-
-   somaUsuario = Number(somaUsuario)
 
    i=2  
 
    while(somaComputador < 20 && somaUsuario < 21) {
          computadorArray.push(comprarCarta())
+         respostaComputador.pop()
          somaComputador = Number(somaComputador) + Number(computadorArray[i].valor)
+         respostaComputador.splice(2, 0, computadorArray[i].texto)
+         respostaComputador.push(Number(somaComputador))
          i++
    }
 
-   somaComputador = Number(somaComputador)
-
-
   // jogador 1
 
-  console.log("Usuário - cartas: ", usuarioArray[0].texto , usuarioArray[1].texto , " - pontuação ", somaUsuario)
+  console.log(respostaUsuario.join([separador = ' ']))
 
   // jogador 2
   
-  console.log("Computador - cartas: ", computadorArray[0].texto , computadorArray[1].texto , " - pontuação ", somaComputador)
+  console.log(respostaComputador.join([separador = ' ']))
 
   if(somaUsuario === somaComputador) {
 
      console.log("Empate!")
 
-  } else if(somaUsuario > somaComputador < 21 && somaUsuario < 22 ) {
+  } else if(somaUsuario > somaComputador < 22 && somaUsuario < 22 ) {
 
      console.log("O usuário ganhou!")
 
