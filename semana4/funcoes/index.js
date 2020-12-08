@@ -76,7 +76,7 @@
 
 // EXERCÍCIO 6
 
-const array = [10, 23, 45, 78, 90, 52, 35, 67, 84, 22]
+// const array = [10, 23, 45, 78, 90, 52, 35, 67, 84, 22]
 
 // a)
 
@@ -119,3 +119,16 @@ const array = [10, 23, 45, 78, 90, 52, 35, 67, 84, 22]
 // }
 
 // paresNoArray2(array)
+
+// DESAFIO 1
+
+// let arrowFunction = (parametro) => {
+//     console.log(parametro)
+// }
+
+// let soma = (num1, num2) => {
+//     const somando = num1 + num2
+//     arrowFunction(somando)
+// }
+
+// soma(5, 3)
