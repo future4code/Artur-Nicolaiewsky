@@ -216,3 +216,20 @@
 
 //     anonimizarPessoa(meuPerfil)
 
+// EXERCÍCIOS FUNÇÕES DE ARRAY
+
+// 1-
+
+// let lista = [
+// 	{ nome: "Pedro", idade: 20 },
+// 	{ nome: "João", idade: 10 },
+// 	{ nome: "Paula", idade: 12 },
+// 	{ nome: "Artur", idade: 89 } 
+// ]
+
+// let maisVelhos = lista.filter((item, index, array) => {
+    
+//     return item.idade >= 20
+
+// })
+// console.log(maisVelhos)
