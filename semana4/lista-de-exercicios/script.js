@@ -28,3 +28,10 @@
 
 // })
 
+// 2-
+
+// a) fasle
+// b) true
+// c) true
+// d) true
+// e) false
