@@ -98,3 +98,58 @@
 //     console.log("Eles são iguais")
 // }
 
+// EXERCÍCIOS DE FUNÇÕES
+
+// 1-
+
+// let arrayNumeros = [80, 3, 5, 45, 13, 115, 1]
+
+
+// let maioresEmenores = () => {
+
+//     let menor = Infinity
+//     let maior = 0
+
+//     for(let i = 0; i < arrayNumeros.length; i++) {
+
+//         if(arrayNumeros[i] < menor){
+//         menor = arrayNumeros[i]
+//         }
+
+//         if(arrayNumeros[i] > maior){
+//         maior = arrayNumeros[i]
+//         }
+//     }
+    
+//     arrayNumeros.splice(arrayNumeros.indexOf(menor), 1)
+
+//     arrayNumeros.splice(arrayNumeros.indexOf(maior), 1)
+
+     
+//     return arrayNumeros
+// }
+// maioresEmenores(arrayNumeros)
+
+
+// let menorEmaiorFinal = () => {
+
+    
+//     let menor = Infinity
+//     let maior = 0
+
+//     for(let i = 0; i < arrayNumeros.length; i++) {
+
+//         if(arrayNumeros[i] < menor){
+//         menor = arrayNumeros[i]
+//         }
+
+//         if(arrayNumeros[i] > maior){
+//         maior = arrayNumeros[i]
+//         }
+//     }
+    
+//      console.log(menor, maior)
+// }
+
+// menorEmaiorFinal(arrayNumeros)
+
