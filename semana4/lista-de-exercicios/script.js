@@ -220,16 +220,30 @@
 
 // 1-
 
-// let lista = [
-// 	{ nome: "Pedro", idade: 20 },
-// 	{ nome: "João", idade: 10 },
-// 	{ nome: "Paula", idade: 12 },
-// 	{ nome: "Artur", idade: 89 } 
-// ]
+// a)
 
-// let maisVelhos = lista.filter((item, index, array) => {
+let lista = [
+	{ nome: "Pedro", idade: 20 },
+	{ nome: "João", idade: 10 },
+	{ nome: "Paula", idade: 12 },
+	{ nome: "Artur", idade: 89 } 
+]
+
+let maisVelhos = lista.filter((item, index, array) => {
     
-//     return item.idade >= 20
+    return item.idade >= 20
 
-// })
-// console.log(maisVelhos)
+})
+console.log(maisVelhos)
+
+// b)
+
+let maisNovos = lista.filter((item, index, array) => {
+    
+    return item.idade < 20
+
+})
+console.log(maisNovos)
+
+// 2-
+
