@@ -166,7 +166,7 @@
 
 // 1- Arrays são listas onde podem ter números e palavras tudo misturado, onde podemos acessar cada item pela posição dele na lista. Objetos são listas mais humanizadas, onde cada item recebe uma etiqueta com um nome que faça sentido no mundo real pro programador e pra qualquer um que leia o programa, no objeto podemos ter arrays. Usamos array quando queremos usar alguma das funções de arrray como map, filter e forEach, que facilitam demais nossa vida. Ja o objeto é pra algo um pouco mais complexo, mas com mais organização, ja que podemos organizar várias listas (array) dentro dele.
 
-// 2
+// 2-
 
 // let criaRetangulo = (lado1,lado2) => {
 
@@ -182,7 +182,7 @@
 
 // criaRetangulo(5, 10)
 
-// 3
+// 3-
 
 // let filmeFavorito = {
 //     titulo: "Inception",
@@ -192,4 +192,27 @@
 // }
 
 // console.log(`Venha assistir ao filme ${filmeFavorito.titulo}, de ${filmeFavorito.ano}, dirigido por ${filmeFavorito.diretor} e estrelado por ${filmeFavorito.atores[0]}, ${filmeFavorito.atores[1]}!`)
+
+// 4-
+
+// let meuPerfil = {
+//         nome: "Artur",
+//         idade: 21,
+//         email: "arturpellicioli@hotmail.com",
+//         endereco: "Porto Alegre - RS"
+//     }
+
+//     let anonimizarPessoa = (array) => {
+//         let perfilAnonimo = {
+//             nome: "ANÔNIMO",
+//             idade: array.idade,
+//             email: array.email,
+//             endereco: array.endereco
+//         }
+
+        
+//     console.log(perfilAnonimo)
+//     }
+
+//     anonimizarPessoa(meuPerfil)
 
