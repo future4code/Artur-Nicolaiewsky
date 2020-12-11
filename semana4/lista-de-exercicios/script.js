@@ -181,3 +181,15 @@
 // }
 
 // criaRetangulo(5, 10)
+
+// 3
+
+// let filmeFavorito = {
+//     titulo: "Inception",
+//     ano: 2010,
+//     diretor: "Christopher Nolan",
+//     atores: ["Leonardo DiCaprio", "Elliot Page"]
+// }
+
+// console.log(`Venha assistir ao filme ${filmeFavorito.titulo}, de ${filmeFavorito.ano}, dirigido por ${filmeFavorito.diretor} e estrelado por ${filmeFavorito.atores[0]}, ${filmeFavorito.atores[1]}!`)
+
