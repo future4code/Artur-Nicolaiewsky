@@ -35,3 +35,15 @@
 // c) true
 // d) true
 // e) false
+
+// 3-
+
+// const quantidadeDeNumerosPares = 3
+// let i = 0
+// while(i <= quantidadeDeNumerosPares) {
+//   console.log(i*2)
+//   i++
+// }
+
+
+
