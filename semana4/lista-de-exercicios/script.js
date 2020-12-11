@@ -153,3 +153,11 @@
 
 // menorEmaiorFinal(arrayNumeros)
 
+
+// 2-
+
+// let hello = () => {
+//     alert("Hello Labenu!");
+// }
+
+// hello()
