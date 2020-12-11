@@ -45,5 +45,20 @@
 //   i++
 // }
 
+// 4- 
 
+// let catetoA = prompt("Insira o primeiro valor")
+// let catetoO = prompt("Insira o segundo valor")
+// let hipotenusa = prompt("Insira o terceiro valor")
+
+// console.log(Number(catetoA), Number(catetoO), Number(hipotenusa))
+
+// if( catetoA === catetoO && catetoO === hipotenusa) {
+//     console.log("triangulo equilatero")
+
+// } else if( catetoA !== catetoO && catetoO !== hipotenusa && catetoA !== hipotenusa) {
+//     console.log("triangulo escaleno")
+// } else {
+//     console.log("triangulo isósceles")
+// }
 
