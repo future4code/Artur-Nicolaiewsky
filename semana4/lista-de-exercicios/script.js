@@ -62,3 +62,39 @@
 //     console.log("triangulo isósceles")
 // }
 
+// 5- 
+
+// const num1 = prompt("Insira o primeiro valor")
+// const num2 = prompt("Insira o segundo valor")
+
+// if(num1 > num2){
+//     console.log("O maior é: ", num1)
+// } else if(num2 > num1) {
+//     console.log("O maior é: ", num2)
+// } else {
+//     console.log(num1, " são iguais ", num2)
+// }
+
+// if(num1%num2 === 0){
+//     console.log(num1, " é divisível por ", num2)
+// } else {
+//     console.log(num1, "não é divisível por ", num2)
+// }
+
+// if(num2%num1 === 0){
+//     console.log(num2, " é divisível por ", num1)
+// } else {
+//     console.log(num2, "não é divisível por ", num1)
+// }
+
+// let diferenca1 = num1 - num2
+// let diferenca2 = num2 - num1
+
+// if(diferenca1 > 0) {
+//     console.log("A diferença entre eles é: ", diferenca1)
+// } else if(diferenca2 > 0) {
+//     console.log("A diferença entre eles é: ", diferenca2)
+// } else {
+//     console.log("Eles são iguais")
+// }
+
