@@ -222,28 +222,61 @@
 
 // a)
 
-let lista = [
-	{ nome: "Pedro", idade: 20 },
-	{ nome: "João", idade: 10 },
-	{ nome: "Paula", idade: 12 },
-	{ nome: "Artur", idade: 89 } 
-]
+// let lista = [
+// 	{ nome: "Pedro", idade: 20 },
+// 	{ nome: "João", idade: 10 },
+// 	{ nome: "Paula", idade: 12 },
+// 	{ nome: "Artur", idade: 89 } 
+// ]
 
-let maisVelhos = lista.filter((item, index, array) => {
+// let maisVelhos = lista.filter((item, index, array) => {
     
-    return item.idade >= 20
+//     return item.idade >= 20
 
-})
-console.log(maisVelhos)
+// })
+// console.log(maisVelhos)
+
+// // b)
+
+// let maisNovos = lista.filter((item, index, array) => {
+    
+//     return item.idade < 20
+
+// })
+// console.log(maisNovos)
+
+// 2-
+
+// const array = [1, 2, 3, 4, 5, 6]
+
+// a)
+
+// let dobrado = array.map((item, index, array) => {
+//      return item*2
+// })
+// console.log(dobrado)
 
 // b)
 
-let maisNovos = lista.filter((item, index, array) => {
+// let triplicado = array.map((item, index, array) => {
+//     let multiplicando = item*3
+//      return multiplicando.toString()
+// })
+// console.log(triplicado)
+
+// c)
+
+// let parOuImpar = array.map((item, index, listas) => {
     
-    return item.idade < 20
+//     if(item%2 === 0) {
 
-})
-console.log(maisNovos)
+//         return item + " é par"
+//     } else {
+        
+//         return item + " é impar"
+//     }
+    
+// })
 
-// 2-
+// console.log(parOuImpar)
 
