@@ -2,14 +2,16 @@ import React from 'react'
 import './Post.css'
 
 import {IconeComContador} from '../IconeComContador/IconeComContador'
-import {IconeSalvaPost} from '../IconeSalvaPost/IconeSalvaPost'
 
 import iconeCoracaoBranco from '../../img/favorite-white.svg'
 import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
 import {SecaoComentario} from '../SecaoComentario/SecaoComentario'
-import iconeSalvo from '../../img/favorite-white.svg'
-import iconeNaoSalvo from '../../img/favorite.svg'
+import iconeSalvo from '../../img/save.svg'
+import iconeNaoSalvo from '../../img/nosave.svg'
+import iconeCompartilhado from '../../img/compartilhar.svg'
+
+import {SecaoCompartilhar} from '../SecaoCompartilhar/SecaoCompartilhar'
 
 
 class Post extends React.Component {
@@ -18,7 +20,8 @@ class Post extends React.Component {
     numeroCurtidas: 3,
     comentando: false,
     numeroComentarios: 3,
-    salvo: true
+    salvo: true,
+    compartilhar: false
   }
 
   onClickCurtida = () => {
@@ -57,6 +60,12 @@ class Post extends React.Component {
     })
   }
 
+  onClickCompartilhar = () => {
+    this.setState({
+      compartilhar: !this.state.compartilhar
+    })
+  }
+
   render() {
     let iconeCurtida
 
@@ -80,6 +89,14 @@ class Post extends React.Component {
       iconeSalvamento = iconeNaoSalvo
     }
 
+    let compartilhamentoAberto
+
+    if(this.state.compartilhar) { 
+      compartilhamentoAberto = <SecaoCompartilhar />
+    }
+
+
+
     return <div className={'post-container'}>
       <div className={'post-header'}>
         <img className={'user-photo'} src={this.props.fotoUsuario} alt={'Imagem do usuario'}/>
@@ -89,7 +106,7 @@ class Post extends React.Component {
       <img className={'post-photo'} src={this.props.fotoPost} alt={'Imagem do post'}/>
 
       <div className={'post-footer'}>
-        <div className={'footer left'}>
+        <div className={'footer-left'}>
           <IconeComContador
             icone={iconeCurtida}
             onClickIcone={this.onClickCurtida}
@@ -102,12 +119,20 @@ class Post extends React.Component {
             valorContador={this.state.numeroComentarios}
           />
         </div>
-        <IconeSalvaPost
-          icone={iconeSalvamento}
-          onClickIcone={this.onClickSalvar}
-        />
+        <div className="footer-right">
+          <IconeComContador
+            icone={iconeSalvamento}
+            onClickIcone={this.onClickSalvar}
+          />
+          
+          <IconeComContador
+            icone={iconeCompartilhado}
+            onClickIcone={this.onClickCompartilhar}
+          />
+        </div>
       </div>
       {componenteComentario}
+      {compartilhamentoAberto}
     </div>
   }
 }
