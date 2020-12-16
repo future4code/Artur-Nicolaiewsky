@@ -2,11 +2,14 @@ import React from 'react'
 import './Post.css'
 
 import {IconeComContador} from '../IconeComContador/IconeComContador'
+import {IconeSalvaPost} from '../IconeSalvaPost/IconeSalvaPost'
 
 import iconeCoracaoBranco from '../../img/favorite-white.svg'
 import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
 import {SecaoComentario} from '../SecaoComentario/SecaoComentario'
+import iconeSalvo from '../../img/favorite-white.svg'
+import iconeNaoSalvo from '../../img/favorite.svg'
 
 
 class Post extends React.Component {
@@ -14,7 +17,8 @@ class Post extends React.Component {
     curtido: false,
     numeroCurtidas: 3,
     comentando: false,
-    numeroComentarios: 3
+    numeroComentarios: 3,
+    salvo: true
   }
 
   onClickCurtida = () => {
@@ -47,6 +51,12 @@ class Post extends React.Component {
     })
   }
 
+  onClickSalvar = () => {
+    this.setState({
+      salvo: !this.state.salvo
+    })
+  }
+
   render() {
     let iconeCurtida
 
@@ -62,6 +72,14 @@ class Post extends React.Component {
       componenteComentario = <SecaoComentario aoEnviar={this.aoEnviarComentario}/>
     }
 
+    let iconeSalvamento
+
+    if(this.state.salvo) {
+      iconeSalvamento = iconeSalvo
+    } else {
+      iconeSalvamento = iconeNaoSalvo
+    }
+
     return <div className={'post-container'}>
       <div className={'post-header'}>
         <img className={'user-photo'} src={this.props.fotoUsuario} alt={'Imagem do usuario'}/>
@@ -71,16 +89,22 @@ class Post extends React.Component {
       <img className={'post-photo'} src={this.props.fotoPost} alt={'Imagem do post'}/>
 
       <div className={'post-footer'}>
-        <IconeComContador
-          icone={iconeCurtida}
-          onClickIcone={this.onClickCurtida}
-          valorContador={this.state.numeroCurtidas}
-        />
+        <div className={'footer left'}>
+          <IconeComContador
+            icone={iconeCurtida}
+            onClickIcone={this.onClickCurtida}
+            valorContador={this.state.numeroCurtidas}
+          />
 
-        <IconeComContador
-          icone={iconeComentario}
-          onClickIcone={this.onClickComentario}
-          valorContador={this.state.numeroComentarios}
+          <IconeComContador
+            icone={iconeComentario}
+            onClickIcone={this.onClickComentario}
+            valorContador={this.state.numeroComentarios}
+          />
+        </div>
+        <IconeSalvaPost
+          icone={iconeSalvamento}
+          onClickIcone={this.onClickSalvar}
         />
       </div>
       {componenteComentario}
