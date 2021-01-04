@@ -12,21 +12,21 @@
 
 // 1- for, for of, forEach
 
-// const lista = ["1", "2", "3"]
+const lista = ["1", "2", "3"]
 
-// for (let i = 0; i < lista.length; i++){
-// console.log(lista[i])
-// }
+for (let i = 0; i < lista.length; i++){
+console.log(lista[i])
+}
 
-// for (numero of lista) {
-//     console.log(numero)
-// }
+for (numero of lista) {
+    console.log(numero)
+}
 
-// let novaLista = lista.map((item, index, array) => {
+let novaLista = lista.forEach((item, index, array) => {
 
-//     console.log(item)
+    console.log(item)
 
-// })
+})
 
 // 2-
 
