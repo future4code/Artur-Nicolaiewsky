@@ -1,0 +1,11 @@
+div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label, 
+input,
+select {
+    margin-bottom: 1rem;
+}
