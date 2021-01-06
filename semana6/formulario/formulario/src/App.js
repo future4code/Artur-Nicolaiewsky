@@ -5,7 +5,7 @@ import styled from 'styled-components'
 class App extends React.Component {
     state = {
       inputValue: "",
-      feed: [{mensagemValue: ""}],
+      feed: [{mensagemValue: ""}, {id: "0"}],
       feita: false
     }
 
@@ -17,7 +17,8 @@ class App extends React.Component {
     onClickButton = () => {
       let novaMensagem = {
 
-        mensagemValue: this.state.inputValue
+        mensagemValue: this.state.inputValue,
+        id: this.state.id+1
 
       }
 
@@ -34,7 +35,7 @@ class App extends React.Component {
 
   render() {
 
-    console.log(this.state.feita)
+    console.log(this.state.id)
 
     let Mensagem = styled.li`
       text-decoration: none;
