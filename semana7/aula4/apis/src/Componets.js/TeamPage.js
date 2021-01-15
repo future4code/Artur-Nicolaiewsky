@@ -221,7 +221,7 @@ export default class Landingpage extends React.Component {
                         )
                 })}
 
-                    <alet>{this.state.finalResult}</alet>
+                    <alert>{this.state.finalResult}</alert>
             </div>
 
             <button onClick={this.openTeam}>Veja o elenco daquele ano!</button>
