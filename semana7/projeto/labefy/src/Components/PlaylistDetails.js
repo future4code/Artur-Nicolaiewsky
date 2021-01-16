@@ -1,5 +1,16 @@
 import React from 'react'
 import axios from 'axios'
+import styled from 'styled-components'
+
+
+const Image = styled.img`
+  opacity:0.7;
+  object-fit: cover;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: -3;
+`
 
 class PlaylistDetails extends React.Component {
   state={
@@ -44,17 +55,7 @@ class PlaylistDetails extends React.Component {
 
     onChangeTrackName = (e) => {
         this.setState({inputValueTrackName: e.target.value})
-
-        axios
-        .get(`https://api.spotify.com/v1/search?q=name:${e.target.value}&type=track`,
-        {
-            headers: {
-                Authorization: ""
-            }
-        }
-        )
     }
-
 
     addNewTrack = (name, artist, url) => {
         const body = {
@@ -75,8 +76,10 @@ class PlaylistDetails extends React.Component {
 
         .then((res) => {
             console.log(res.data)
-            
-      this.viewPlaylistTracks(this.props.playlist.id)
+            this.viewPlaylistTracks(this.props.playlist.id)
+            this.setState({inputValueTrackName: ""})
+            this.setState({inputValueTrackArtist: ""})
+            this.setState({inputValueTrackUrl: ""})
         })
 
         .catch((err) => {
@@ -111,6 +114,7 @@ class PlaylistDetails extends React.Component {
     return (
     
         <div>
+            
             <h2>Detalhes de {this.props.playlist.name}</h2>
             <input value={this.inputValueTrackName} onChange={this.onChangeTrackName} placeholder={"Nome da música"}/>
             <input value={this.inputValueTrackArtist} onChange={this.onChangeTrackArtist} placeholder={"Artista da música"}/>
