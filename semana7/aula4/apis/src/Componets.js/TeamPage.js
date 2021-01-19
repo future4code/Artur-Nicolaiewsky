@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import Gamebook from './Gamebook'
 
 export default class Landingpage extends React.Component {
 
@@ -11,8 +12,9 @@ export default class Landingpage extends React.Component {
         predictResult: [],
         details: false,
 
-        finalResult: ""
-
+        finalResult: "",
+        gamebook: false,
+        fixture: {},
     }
 
     componentDidMount = () => {
@@ -110,7 +112,7 @@ export default class Landingpage extends React.Component {
     })
 
     .then((res) => {
-        console.log(res.data.api.predictions)
+      
       this.setState({predictResult: res.data.api.predictions})
 
       this.state.predictResult.map((result) => {
@@ -121,7 +123,11 @@ export default class Landingpage extends React.Component {
           } else {
             this.setState({finalResult: "draw"})
           }
+
+          
+      {alert("O " + this.state.finalResult + " ganhará essa partida.")}
       })
+
     })
 
     .catch((err) => {
@@ -143,8 +149,20 @@ export default class Landingpage extends React.Component {
       console.log(this.state.openTeam)
   }
   
+  openGamebook = (fixture) => {
+    this.setState({gamebook: true})
+    this.setState({fixture: fixture})
+  }
 
     render(){
+
+      if(this.state.gamebook) {
+        return (
+          <Gamebook
+          fixture={this.state.fixture}
+          />
+        )
+      }
         
         if(this.state.details){
             return(
@@ -216,12 +234,11 @@ export default class Landingpage extends React.Component {
                             <li>{fixture.venue}</li>
 
                             <button onClick={() => this.predict(fixture.fixture_id , fixture.homeTeam.team_name , fixture.awayTeam.team_name)}>Preveja o resultado</button>
-
+                            <button onClick={() => this.openGamebook(fixture)}> Apostar nessa partida </button>
                         </div>
                         )
                 })}
 
-                    <alert>{this.state.finalResult}</alert>
             </div>
 
             <button onClick={this.openTeam}>Veja o elenco daquele ano!</button>
