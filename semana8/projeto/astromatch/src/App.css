@@ -1,0 +1,98 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  background: #dcdcdc;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.Container {
+  margin: auto;
+
+  min-height: 85vh;
+  min-width: 30vw;
+  border: solid;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+}
+
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2vh 1vw 2vh 1vw;
+  margin-bottom: 2vh;
+
+  border-bottom: solid 1px grey;
+}
+
+.Arrow {
+  transform: rotate(180deg);
+}
+
+.Title {
+  margin: 0;
+  background: linear-gradient(#f0794c 50%, #ff07f0);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+}
+
+.Images {
+  height: 4vh;
+  width: 4vh;
+  cursor: pointer;
+}
+
+.Images:hover{
+  height: 5vh;
+}
+
+.Buttons {
+  background: none;
+  border: none;
+  outline: none;
+
+  max-height:4vh;
+}
+
+
+.Heart {
+    margin: 200px 8vw;
+    background:  #ff07f0;
+    height: 200px;
+    transform: rotate(-45deg);
+    width: 200px;
+    position: relative;
+}
+
+.Heart:before,
+.Heart:after {
+    content: "";
+    background: linear-gradient(#f0794c 40%, #ff07f0);
+    border-radius: 50%;
+    height: 200px;
+    position: absolute;
+    width: 200px;
+    
+    transform: rotate(45deg);
+}
+
+.Heart:before {
+    top: -100px;
+    right: 0px;
+}
+
+.Heart:after {
+    left: 100px;
+}
+
+.MainHeart {
+  margin: auto;
+}

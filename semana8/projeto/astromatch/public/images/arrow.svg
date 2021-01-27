@@ -1,0 +1,19 @@
+<svg width="30" height="30"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <title>arrow</title>
+ <defs>
+  <linearGradient id="linearGradient3360">
+   <stop stop-color="#aeed72" id="stop3362" offset="0"/>
+   <stop stop-color="#71c91c" id="stop3364" offset="1"/>
+  </linearGradient>
+  <linearGradient y2="0.856688" x2="0.863636" y1="0.194268" x1="0.318182" id="linearGradient3366" xlink:href="#linearGradient3360"/>
+ </defs>
+ <metadata id="metadata7">image/svg+xmlicon_arrow_right_green2008-05-12Jean-Victor Balinfr-FRiconarrowgreenjean.victor.balin@gmail.com</metadata>
+ <g>
+  <title>Layer 1</title>
+  <g externalResourcesRequired="false" id="layer1">
+   <rect fill="#000000" y="12.5" x="16" height="0" width="6" id="rect3465"/>
+   <path fill="#000000" id="path3354" d="m12.5,2.5625c-1.03071,0.09714 -1.81696,0.96473 -1.8125,2l0,2.625l-7.3125,0c-1.10452,0.00011 -1.99989,0.89548 -2,2l0,11.625c0.00011,1.104521 0.89548,1.999889 2,2l7.3125,0l0,2.625c0.00011,1.104521 0.89548,1.999889 2,2l2.3125,0c0.45426,0.00034 0.8951,-0.153959 1.25,-0.4375l11.625,-9.28125c0.47439,-0.37985 0.750351,-0.954769 0.75,-1.5625l0,-2.3125c0.000351,-0.60773 -0.27561,-1.18265 -0.75,-1.5625l-11.625,-9.28125c-0.3549,-0.28354 -0.79574,-0.43784 -1.25,-0.4375l-2.3125,0c-0.06247,-0.00293 -0.125031,-0.00293 -0.1875,0z"/>
+   <path fill="#ffffff" id="path3358" d="m13.3125,5.1875l0,4c-0.00004,0.34516 -0.27984,0.624969 -0.625,0.625l-8.6875,0l0,10.375l8.6875,0c0.34516,0.000031 0.62496,0.27984 0.625,0.625l0,4l1.46875,0l11.21875,-8.96875l0,-1.6875l-11.21875,-8.96875l-1.46875,0z"/>
+  </g>
+ </g>
+</svg>
