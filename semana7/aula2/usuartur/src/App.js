@@ -2,6 +2,21 @@ import React from 'react'
 import './App.css';
 import Cadastramento from './Components/Cadastramento'
 import Usuarios from './Components/Usuarios'
+import styled from 'styled-components'
+
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid;
+    margin: 15vh 30vw;
+    padding: 10vh 8vw;
+  `
+
+const Box = styled.div`
+    margin: 0 10vw;
+    margin-top: 10vh;
+  `
 
 class App extends React.Component {
   state={
@@ -16,19 +31,24 @@ class App extends React.Component {
 
     if(this.state.modo){
       return (
-        <div className="App">
-          <h1>Faça seu cadastro!</h1>
-          <Cadastramento />
-          <button onClick={this.mudarModo}>Ver usuários</button>
-        </div>
+        <Container>
+          <div>
+            <h1>Faça seu cadastro!</h1>
+
+            <Cadastramento />
+
+            <Box>
+              <button onClick={this.mudarModo}>Ver usuários</button>
+            </Box>
+          </div>
+        </Container>
       );
     } else {
       return (
-        <div className="App">
-          <h1>Usuários</h1>
+        <Container>
           <Usuarios />
-          <button onClick={this.mudarModo}>Voltar</button>
-        </div>
+          <button onClick={this.mudarModo}>Menu de Cadatros</button>
+        </Container>
       );
     }
   
