@@ -1,30 +1,43 @@
 import styled from 'styled-components'
 import useInput from '../hooks/useInput'
-import useResquestDataPost from '../hooks/useRequestDataPost'
+import axios from 'axios'
 
-export default function CreateTripPage(onCreateTrip) {
+export default function CreateTripPage() {
   const [name, onChangeName] = useInput()
   const [planet, onChangePlanet] = useInput()
   const [data, onChangeData] = useInput()
   const [description, onChangeDescription] = useInput()
   const [duration, onChangeDuration] = useInput()
 
-  const body = {
-    name: name,
-    planet: planet,
-    data: data,
-    description: description,
-    duration: duration
-  }
 
-  const createTrip = useResquestDataPost(
-    "https://us-central1-labenu-apis.cloudfunctions.net/labeX/artur-epps/trips",
-    body,
-    Headers={
-      Authorization: "JhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im93T2g5ZWo2bW50akZqNUNRMVB4IiwiZW1haWwiOiJhc3Ryb2RldkBnbWFpbC5jb20uYnIiLCJpYXQiOjE1ODk1NjI5MDh9.aB4dNbTCkToXB7pdzEa-tuMa-QbRQDUd93eva4-cec0"
-    },
-    []
+  const token = localStorage.getItem("token")
+
+  const createTrip = () => {
+
+    const body = {
+      name: name,
+      planet: planet,
+      date: data,
+      description: description,
+      durationInDays: duration
+    }
+
+    axios
+    .post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/artur-epps/trips", body,
+      {
+        headers: {
+          auth: token
+        }
+      }
     )
+    .then((res) => {
+      console.log(res.data)
+    })
+
+    .catch((err) => {
+      console.log(err.message)
+    })
+  }
 
   return (
 

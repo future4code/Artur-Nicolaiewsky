@@ -1,14 +1,15 @@
 import styled from 'styled-components'
 import {useHistory} from 'react-router-dom'
 import { goToCreateTrip, goToTripDetails} from '../Router/Coordinates'
-import useResquestDataGet from '../hooks/useRequestDataGet'
+import useRequestDataGet from '../hooks/useRequestDataGet'
 import { useEffect, useState } from 'react'
 
 
 export default function PainelControlPage() {
     const [allTrips, setAllTrips] = useState([])
 
-    const listTrips = useResquestDataGet(
+
+    const listTrips = useRequestDataGet(
       "https://us-central1-labenu-apis.cloudfunctions.net/labeX/artur-epps/trips",
       []
       )
@@ -30,14 +31,12 @@ export default function PainelControlPage() {
             <h3>Próximas viagens:</h3>
             {allTrips && allTrips.map((trip) => {
                 return (
-                    <article onClick={() => goToTripDetails(history)}>
+                    <article onClick={() => goToTripDetails(history, trip.id)}>
                         <p>{trip.name } {(trip.planet)}</p>
                         <p>Ver Detalhes</p>
                     </article>
                 )
             })}
-
-            <button>Ver mais...</button>
 
             <button onClick={() => goToCreateTrip(history)}>Adicionar nova viagem</button>
         </section>

@@ -27,6 +27,6 @@ export const goToSubs = (history) => {
     history.push("/subs-to-trip")
 }
 
-export const goToTripDetails = (history) => {
-    history.push("/trip-details")
+export const goToTripDetails = (history, id) => {
+    history.push(`/trip-details/${id}`)
 }
