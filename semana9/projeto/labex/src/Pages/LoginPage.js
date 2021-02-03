@@ -1,8 +1,12 @@
 import styled from 'styled-components'
+import {useHistory} from 'react-router-dom'
+import { goToPainel } from '../Router/Coordinates'
 
 
 export default function LoginPage() {
 
+  const history = useHistory()
+  
   return (
 
     <main>
@@ -19,7 +23,7 @@ export default function LoginPage() {
                 <input/>
             </article>
 
-            <button>Entrar</button>
+            <button onClick={() => goToPainel(history)}>Entrar</button>
             
         </section>
     </main>

@@ -39,11 +39,11 @@ export default function TripDetailsPage() {
             </article>
 
             <article>
-                <p>Julio, 25 anos, Professor de química</p>
+                <p>Helbert, 30 anos, Professor de física</p>
             </article>
             
             <article>
-                <p>Julio, 25 anos, Professor de química</p>
+                <p>Richard, 60 anos, Professor de matemática</p>
             </article>
         </section>
     </main>

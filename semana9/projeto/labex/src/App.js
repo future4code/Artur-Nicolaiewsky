@@ -1,13 +1,9 @@
-import HomePage from './Components/HomePage'
-import ApplicationFormPage from './Components/ApplicationFormPage'
-import CreateTripPage from './Components/CreateTripPage'
+import {Router} from './Router/Router'
 
 export default function App() {
   return (
     <div>
-      {/* <HomePage/> */}
-      {/* <ApplicationFormPage/> */}
-      <CreateTripPage/>
+      <Router/>
     </div>
   )
 }

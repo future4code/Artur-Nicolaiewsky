@@ -1,6 +1,10 @@
 import styled from 'styled-components'
+import {useHistory} from 'react-router-dom'
+import {goToCongratulations} from '../Router/Coordinates'
 
 export default function ApplicationFormPage() {
+
+    const history = useHistory()
 
     return (
 
@@ -41,7 +45,7 @@ export default function ApplicationFormPage() {
               </select>
             </article>
 
-            <button>Enviar</button>
+            <button onClick={() => goToCongratulations(history)}>Enviar</button>
             
         </section>
     </main>
