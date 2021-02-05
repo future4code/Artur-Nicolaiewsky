@@ -87,17 +87,22 @@ const Article = styled.article`
 `
 
 const ArticleCandidates = styled.article`
-    width: 70vw;
+    width: 30vw;
     display: flex;
     flex-direction: column;
+    
     text-align: start;
+
+    
+  @media(max-width: 800px) {
+    width: 70vw;
+    }
 
 `
 
 const Description = styled.p`
     width: 30vw;
     word-wrap: break-word;
-
     
   @media(max-width: 800px) {
     width: 70vw;
