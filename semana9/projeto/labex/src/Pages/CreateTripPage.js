@@ -1,29 +1,82 @@
 import styled from 'styled-components'
 import useInput from '../hooks/useInput'
 import axios from 'axios'
+import {goToPainel} from '../Router/Coordinates'
+import {useHistory} from 'react-router-dom'
+
+const MainContainer = styled.section`
+  margin: auto;
+  margin-top: 5vh;
+  width: 35vw;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  text-align:center;
+  align-items:center;
+  
+  border-radius: 10px;
+  padding: 2vh 1vw;
+  box-shadow: 1px 1px 10px 1px black;
+`
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  text-align:center;
+  align-items:center;
+
+`
+
+const Title = styled.h2`
+  margin: 1rem;
+`
+
+const Label = styled.p`
+
+`
+
+const Input = styled.input`
+  width: 20vw;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0.5px 0.5px 5px 0.1px grey;
+`
+
+const Send = styled.button`
+  width: 8vw;
+  padding: 0.4rem;
+  margin: 2vh 0;
+ 
+  border-radius: 10px;
+  box-shadow: 0.5px 0.5px 5px 0.5px grey;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background: #2196f3;
+  color:white;
+
+  &:hover {
+    
+  background: #6ec6ff;
+  }
+`
 
 export default function CreateTripPage() {
-  const [name, onChangeName] = useInput()
-  const [planet, onChangePlanet] = useInput()
-  const [data, onChangeData] = useInput()
-  const [description, onChangeDescription] = useInput()
-  const [duration, onChangeDuration] = useInput()
+
+  const [inputTrip, onChangeInputTrip] = useInput({name: "", planet: "", date: "", description: "", durationInDays: ""})
 
 
   const token = localStorage.getItem("token")
+  const history = useHistory()
 
-  const createTrip = () => {
+  const createTrip = (event) => {
 
-    const body = {
-      name: name,
-      planet: planet,
-      date: data,
-      description: description,
-      durationInDays: duration
-    }
+    event.preventDefault()
 
     axios
-    .post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/artur-epps/trips", body,
+    .post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/artur-epps/trips", inputTrip,
       {
         headers: {
           auth: token
@@ -31,7 +84,7 @@ export default function CreateTripPage() {
       }
     )
     .then((res) => {
-      console.log(res.data)
+      goToPainel(history)
     })
 
     .catch((err) => {
@@ -41,41 +94,28 @@ export default function CreateTripPage() {
 
   return (
 
-    <main>
-        <section>
-            <h2>Estamos felizes em te ter no nosso programa espacial</h2>
+    <MainContainer>
+            <Title>Criar uma nova viagem espacial</Title>
           
-            <article>
-                <label>Nome:</label>
-                <input value={name} onChange={onChangeName}/>
-            </article>
+          <Form onSubmit={createTrip}>
+                <Label>Nome:</Label>
+                <Input value={inputTrip.name} onChange={onChangeInputTrip} name={"name"}  pattern={"^.{2,}"} title={"O nome precisa ter 2 ou mais caracteres"} placeholder={"Ex: Missão COD"} required/>
 
-            <article>
-                <label>Planeta:</label>
-                <input value={planet} onChange={onChangePlanet}/>
-            </article>
+                <Label>Planeta:</Label>
+                <Input value={inputTrip.planet} onChange={onChangeInputTrip}  pattern={"^.{2,}"} title={"O planeta precisa ter 2 ou mais caracteres"} placeholder={"Ex: Terra"} name={"planet"} required/>
 
-            <article>
-                <label>Data:</label>
-                <input value={data} onChange={onChangeData}/>
-            </article>
+                <Label>Data:</Label>
+                <Input value={inputTrip.date} onChange={onChangeInputTrip} type={"date"} name={"date"} required/>
 
-            <article>
-                <label>Descrição:</label>
-                <input value={description} onChange={onChangeDescription}/>
-            </article>
+                <Label>Descrição:</Label>
+                <Input value={inputTrip.description} onChange={onChangeInputTrip} pattern={"^.{30,}"} title={"O nome precisa ter 30 ou mais caracteres"} name={"description"} placeholder={"Ex: Dê mais detalhes sobre a viagem"} required/>
 
-            <article>
-                <label>Duração:</label>
-                <input value={duration} onChange={onChangeDuration}/>
-            </article>
+                <Label>Duração:</Label>
+                <Input value={inputTrip.durationInDays} onChange={onChangeInputTrip} min="50" name={"durationInDays"} type={"number"} placeholder={"Ex: 115"} required/>
 
-            <button onClick={createTrip}>Criar</button>
-            
-        </section>
-
-      <useResquestDataPost />
-    </main>
+            <Send>Criar</Send>
+          </Form>
+    </MainContainer>
 
   )
 }

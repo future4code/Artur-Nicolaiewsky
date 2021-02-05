@@ -1,10 +1,11 @@
 import {useState} from 'react'
 
-export default function useInput() {
-    const [input, setInput] = useState("")
+export default function useInput(initialStage) {
+    const [input, setInput] = useState(initialStage)
 
     const onChangeInput = (e) => {
-        setInput(e.target.value)
+        const { value, name } = e.target;
+        setInput({...input, [name]: value})
     }
 
     return [input, onChangeInput]

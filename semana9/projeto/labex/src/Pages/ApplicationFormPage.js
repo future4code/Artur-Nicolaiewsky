@@ -6,103 +6,178 @@ import axios from 'axios'
 import {useState, useEffect} from 'react'
 import useRequestDataGet from '../hooks/useRequestDataGet'
 
+const MainContainer = styled.section`
+  margin: auto;
+  margin-top: 10vh;
+  width: 35vw;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  text-align: center;
+  
+  border-radius: 10px;
+  padding: 2vh 1vw;
+  box-shadow: 1px 1px 10px 1px black;
+`
+
+const Title = styled.h2`
+  margin: 1rem;
+`
+
+const Label = styled.p`
+
+`
+
+const Input = styled.input`
+  width: 20vw;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0.5px 0.5px 5px 0.1px grey;
+`
+
+const Select = styled.select`
+  width: 22vw;
+  padding: 0.8rem;
+  margin-bottom: 2vh;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0.5px 0.5px 5px 0.1px grey;
+`
+
+const Send = styled.button`
+  width: 8vw;
+  padding: 0.4rem;
+  margin-bottom: 2vh;
+  
+  border-radius: 10px;
+  box-shadow: 0.5px 0.5px 5px 0.5px grey;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background: #2196f3;
+  color:white;
+
+  &:hover {
+    
+  background: #6ec6ff;
+  }
+`
+
 export default function ApplicationFormPage() {
-    const [name, onChangeName] = useInput()
-    const [planet, onChangePlanet] = useInput()
-    const [age, onChangeAge] = useInput()
-    const [application, onChangeApplication] = useInput()
-    const [profession, onChangeProfession] = useInput()
-    const [country, onChangeCountry] = useInput()
     const [allTripsSelect, setAllTripsSelect] = useState([])
+    const [inputToSub, onChangeInputToSub] = useInput({ name: "", age: "", applicationText: "", profession: "", country: ""})
+    const [tripId, setTripId] = useState({})
+    const [changed, setChanged] = useState()
+    const [countrieList, setCountrieList] = useState()
+    // const [verificated, setVerificated] =useState()
 
     const history = useHistory()
 
-    const applicationTest = (planet, history) => {
+    const applicationTest = (event) => {
 
-        const body = {
-            name: name,
-            age: age,
-            applicationText: application,
-            profession: profession,
-            country: country
-        }
+      if(changed === "changed"){
+      event.preventDefault()
     
-        axios
-        .post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/artur-epps/trips/${planet}/apply`, body)
+      axios
+        .post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/artur-epps/trips/${tripId}/apply`, inputToSub)
 
         .then((res) => {
           console.log(res.data)
           goToCongratulations(history)
         })
-    
         .catch((err) => {
           console.log(err.message)
+          alert("Selecione seu país")
         })
+      } else {
+        event.preventDefault()
+        alert("Escolha uma viagem para participar")
       }
+    }
 
-      const listTripsSelect = useRequestDataGet(
-        "https://us-central1-labenu-apis.cloudfunctions.net/labeX/artur-epps/trips",
-        []
-        )
+    const listTripsSelect = useRequestDataGet(
+      "https://us-central1-labenu-apis.cloudfunctions.net/labeX/artur-epps/trips", []
+    )
     
-        useEffect(() => {
-          
-          setAllTripsSelect(listTripsSelect.trips)
-          console.log(listTripsSelect.trips)
-    
-        }, [listTripsSelect.trips])
+    useEffect(() => {
+      setAllTripsSelect(listTripsSelect.trips)
+      getCountries()
+    }, [listTripsSelect.trips])
+
+
+    const onChangePlanet = (event) => {
+      setTripId(event.target.value)
+
+      setChanged("changed")
+    }
+
+    const getCountries = () => {
+      axios
+      .get("https://restcountries.eu/rest/v2/all")
+      .then((res) => {
+        setCountrieList(res.data)
+        setCountrieList && console.log(countrieList)
+      })
+      .catch((err) => {
+        console.log(err.message)
+      })
+    }
 
     return (
 
-    <main>
-        <section>
-            <h2>Estamos felizes em te ter no nosso programa espacial</h2>
+        <MainContainer>
+            <Title>Estamos felizes em contar com você para o programa espacial</Title>
           
-            <article>
-                <label>Nome:</label>
-                <input value={name} onChange={onChangeName}/>
-            </article>
+          <form onSubmit={applicationTest}>
+                <Label>Nome Completo:</Label>
+                  <Input value={inputToSub.name} onChange={onChangeInputToSub} pattern={"[a-zA-Z .]{5,}"} title={"O nome precisa ter 5 ou mais caracteres e não pode conter números"} name={"name"} placeholder={"Ex: Fulano de Tal"} required/>
 
-            <article>
-                <label>Idade:</label>
-                <input value={age} onChange={onChangeAge}/>
-            </article>
+                <Label>Idade:</Label>
+                  <Input value={inputToSub.age} onChange={onChangeInputToSub} min="18" max="115" type="number" name={"age"} placeholder={"Ex: 21"} required/>
 
-            <article>
-                <label>Por que você merece estar aqui?</label>
-                <input value={application} onChange={onChangeApplication}/>
-            </article>
+                <Label>Por que você merece estar aqui?</Label>
+                  <Input value={inputToSub.application} onChange={onChangeInputToSub} pattern={"^.{30,}"} title={"A justificativa precisa ter 30 ou mais caracteres"} name={"applicationText"} placeholder={"Ex: Explique aqui"} required/>
 
-            <article>
-                <label>Profissão:</label>
-                <input value={profession} onChange={onChangeProfession}/>
-            </article>
+                <Label>Profissão:</Label>
+                  <Input value={inputToSub.profession} onChange={onChangeInputToSub}  pattern={"[a-zA-Z ]{5,}"} title={"A profissão precisa ter 5 ou mais caracteres e não pode conter números"} name={"profession"} placeholder={"Ex: Programador"} required/>
 
-            <article>
-                <label>País:</label>
-                <input value={country} onChange={onChangeCountry}/>
-            </article>
+                <Label>País:</Label>
+                  {/* <Input value={inputToSub.country} onChange={onChangeInputToSub} name={"country"} placeholder={"Ex: Brasil"} required/> */}
 
-            <article>
-              <select value={planet} onChange={onChangePlanet}>
-                {allTripsSelect ? allTripsSelect.map((trip) => {
-                  console.log(trip.name)
+
+                  <Select onChange={onChangeInputToSub} name={"country"} required>
+                <option selected disabled>Selecione seu país</option>
+                {countrieList ? countrieList.map((country) => {
+                  // console.log(trip.id)
                   return(
-                      <option value={trip.name}>{trip.name}</option>
+                      <option value={country.name}>{country.name}</option>
                   )
                 }) : 
-                    <option value="Buscando Viagens...">Buscando Viagen</option>
+                    <option value="Buscando Países...">Buscando Países...</option>
                 }
+              </Select>
 
-                
-                {/*  */}
-              </select>
-            </article>
 
-            <button onClick={() => applicationTest(planet, history)}>Enviar</button>
-            
-        </section>
-    </main>
+
+            <div>
+              <Label>Viagem pretendida:</Label>
+              <Select onChange={onChangePlanet} name={"planet"} required>
+                <option selected disabled>Escolha uma viagem</option>
+                {allTripsSelect ? allTripsSelect.map((trip) => {
+                  // console.log(trip.id)
+                  return(
+                      <option value={trip.id}>{trip.name} - {trip.planet}</option>
+                  )
+                }) : 
+                    <option value="Buscando Viagens...">"Buscando Viagens...</option>
+                }
+              </Select>
+            </div>
+
+            <Send>Enviar</Send>
+          </form>
+        </MainContainer>
 
   )
 }

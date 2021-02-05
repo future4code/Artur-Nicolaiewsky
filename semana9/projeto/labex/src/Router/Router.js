@@ -5,7 +5,6 @@ import CreateTripPage from '../Pages/CreateTripPage'
 import ErrorPage from '../Pages/ErrorPage'
 import LoginPage from '../Pages/LoginPage'
 import PainelControlPage from '../Pages/PainelControlPage'
-import SubsTripPage from '../Pages/SubsTripPage'
 import TripDetailsPage from '../Pages/TripDetailsPage'
 import Header from '../Components/Header'
 
@@ -40,10 +39,6 @@ export const Router = () => {
 
                 <Route exact path="/painel">
                     <PainelControlPage/>
-                </Route>
-
-                <Route exact path="/subs-to-trip">
-                    <SubsTripPage/>
                 </Route>
 
                 <Route exact path="/trip-details/:tripId">

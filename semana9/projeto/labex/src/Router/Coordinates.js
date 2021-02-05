@@ -21,10 +21,7 @@ export const goToCreateTrip = (history) => {
 
 export const goToPainel = (history) => {
     history.push("/painel")
-}
-
-export const goToSubs = (history) => {
-    history.push("/subs-to-trip")
+    console.log("teste")
 }
 
 export const goToTripDetails = (history, id) => {

@@ -6,10 +6,66 @@ import axios from 'axios'
 import {useEffect, useState} from 'react'
 import React from 'react'
 
+const MainContainer = styled.section`
+  margin: auto;
+  margin-top: 15vh;
+  width: 27vw;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  text-align:center;
+  
+  border-radius: 10px;
+  padding: 2vh 1vw;
+  box-shadow: 1px 1px 10px 1px black;
+`
+
+const Title = styled.h2`
+  margin: 1rem;
+`
+
+const Label = styled.p`
+
+`
+
+const Input = styled.input`
+  width: 20vw;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0.5px 0.5px 5px 0.1px grey;
+`
+
+const Send = styled.button`
+  width: 8vw;
+  padding: 0.4rem;
+  margin: 4vh;
+ 
+  border-radius: 10px;
+  box-shadow: 0.5px 0.5px 5px 0.5px grey;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background: #2196f3;
+  color:white;
+
+  &:hover {
+    
+  background: #6ec6ff;
+  }
+
+`
+
+const Sair = styled.button`
+  border: none;
+  background: none;
+  color: red;
+  cursor: pointer;
+`
+
 
 export default function LoginPage() {
-  const [email, setEmail] = useInput()
-  const [password, setPassword] = useInput()
+  const [inputLogin, onChangeInputLogin] = useInput({email: "", password: ""})
   const [log, setLog] = useState(true)
 
   useEffect(() => {
@@ -35,19 +91,16 @@ export default function LoginPage() {
     }
   }
 
-  const login = (history) => {
+  const login = (event) => {
 
-    const body = {
-      email: email,
-      password: password
-    }
+    event.preventDefault()
 
     axios
-    .post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/artur-epps/login", body)
+    .post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/artur-epps/login", inputLogin)
 
     .then((res) => {
       localStorage.setItem("token", res.data.token)
-      localStorage.setItem("email", email)
+      localStorage.setItem("email", inputLogin.email)
       goToPainel(history)
       window.location.reload()
     })
@@ -61,37 +114,38 @@ export default function LoginPage() {
 
   return (
 
-    <main>
+    <MainContainer>
         <section>
-            <h2>Entre em sua conta</h2>
+            <Title>Entre em sua conta</Title>
           
-            <article>
-                <label>Email:</label>
-                <input value={email} onChange={setEmail}/>
-            </article>
+          <form onSubmit={login}>
+            <div>
+                <Label>Email:</Label>
+                <Input value={inputLogin.email} onChange={onChangeInputLogin} name={"email"} placeholder={"Ex: email@hotmail.com.br"} required/>
+            </div>
 
-            <article>
-                <label>Senha:</label>
-                <input value={password} onChange={setPassword} type="password"/>
-            </article>
+            <div>
+                <Label>Senha:</Label>
+                <Input value={inputLogin.password} onChange={onChangeInputLogin} type="password" placeholder={"Ex: Sua senha"} name={"password"} required/>
+            </div>
 
-            <button onClick={() => login(history)}>Entrar</button>
-            
+            <Send>Entrar</Send>
+          </form>
         </section>
-    </main>
+    </MainContainer>
 
   )} else {
     return(
-      <main>
+      <MainContainer>
           <section>
-              <h2>Você já está logado</h2>
+              <Title>Você já está logado</Title>
 
-              <button onClick={() => goToPainel(history)}>Continuar</button>
+              <Send onClick={goToPainel}>Continuar</Send>
 
-              <p>Caso queira entrar com outra conta, <button onClick={removeToken}>Clique Aqui</button></p>
+              <p>Caso queira entrar com outra conta, <Sair onClick={removeToken}>Clique Aqui</Sair></p>
               
           </section>
-      </main>
+      </MainContainer>
     )
   }
 }
