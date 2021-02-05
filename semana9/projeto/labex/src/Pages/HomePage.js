@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import {useHistory} from 'react-router-dom'
 import {goToApplication} from '../Router/Coordinates'
+import {useState} from  'react'
 
 const MainContainer = styled.section`
   margin: auto;
@@ -17,6 +18,10 @@ const MainContainer = styled.section`
   border-radius: 10px;
   padding: 2vh 1vw;
   box-shadow: 1px 1px 10px 1px black;
+
+    @media(max-width: 800px) {
+      width: 70vw;
+    }
 `
 
 const Title = styled.h1`
@@ -27,6 +32,11 @@ const Gif = styled.img`
   width: 8vw;
   height: 8vw;
   margin-bottom: 4vh;
+  
+  @media(max-width: 800px) {
+      width: 15vw;
+      height: 15vw;
+    }
 `
 
 const Send = styled.button`
@@ -46,6 +56,10 @@ const Send = styled.button`
     
   background: #6ec6ff;
   }
+
+  @media(max-width: 800px) {
+      width: 30vw;
+    }
 `
 
 export default function HomePage() {

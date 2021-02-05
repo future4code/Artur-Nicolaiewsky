@@ -15,6 +15,10 @@ const MainContainer = styled.section`
   border-radius: 10px;
   padding: 2vh 1vw;
   box-shadow: 1px 1px 10px 1px black;
+  
+  @media(max-width: 800px) {
+      width: 70vw;
+    }
 `
 
 const Title = styled.h2`
@@ -41,6 +45,10 @@ const Send = styled.button`
     
   background: #6ec6ff;
   }
+  
+  @media(max-width: 800px) {
+      width: 30vw;
+    }
 `
 
 export default function CongratulationsPage() {

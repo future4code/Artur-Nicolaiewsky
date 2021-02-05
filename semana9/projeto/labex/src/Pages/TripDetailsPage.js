@@ -16,10 +16,18 @@ const MainContainer = styled.section`
   border-radius: 10px;
   padding: 2vh 1vw;
   box-shadow: 1px 1px 10px 1px black;
+  
+  @media(max-width: 800px) {
+      width: 80vw;
+    }
 `
 
 const Title = styled.h1`
+  font-size: 2rem;
   margin: 1rem;
+  margin-bottom: 0;
+  padding-bottom: 1rem;
+  border-bottom: solid 1px lightgrey;
 `
 
 const SubTitle = styled.h2`
@@ -28,7 +36,7 @@ const SubTitle = styled.h2`
 
 const Approvated = styled.button`
 
-width: 8vw;
+  width: 8vw;
   padding: 0.4rem;
   margin: 2vh 1vw;
   
@@ -44,11 +52,15 @@ width: 8vw;
     
   background: #9cff57;
   }
+  
+  @media(max-width: 800px) {
+      width: 20vw;
+    }
 `
 
 const Repprovated = styled.button`
 
-width: 8vw;
+  width: 8vw;
   padding: 0.4rem;
   margin: 2vh 1vw;
   
@@ -64,6 +76,10 @@ width: 8vw;
     
   background: #ff5131;
   }
+  
+  @media(max-width: 800px) {
+      width: 20vw;
+    }
 `
 
 const Article = styled.article`
@@ -71,7 +87,7 @@ const Article = styled.article`
 `
 
 const ArticleCandidates = styled.article`
-    width: 27vw;
+    width: 70vw;
     display: flex;
     flex-direction: column;
     text-align: start;
@@ -79,14 +95,33 @@ const ArticleCandidates = styled.article`
 `
 
 const Description = styled.p`
-    max-width: 30vw;
+    width: 30vw;
     word-wrap: break-word;
+
+    
+  @media(max-width: 800px) {
+    width: 70vw;
+    }
 `
 
 const Section = styled.section`
-    border-top: solid 1px lightgrey;
     border-bottom: solid 1px lightgrey;
-    width: 35vw;
+    width: 30vw;
+    text-align: start;
+
+    @media(max-width: 800px) {
+    width: 70vw;
+    }
+`
+
+const SectionCenter = styled.section`
+    border-bottom: solid 1px lightgrey;
+    width: 30vw;
+    text-align: center;
+
+    @media(max-width: 800px) {
+    width: 70vw;
+    }
 `
 
 const Candidate = styled.section`
@@ -153,8 +188,8 @@ export default function TripDetailsPage() {
     <MainContainer>
         <Title>{tripDetails.name}</Title>
 
-        <section>
-            <SubTitle>Informações da viagem:</SubTitle>
+        <SubTitle>Informações da viagem:</SubTitle>
+        <Section>
             <Article>
                 <Description><b>Destino:</b> {tripDetails.planet}</Description>
             </Article>
@@ -170,10 +205,10 @@ export default function TripDetailsPage() {
             <Article>
                 <Description><b>Data:</b> {tripDetails.date}</Description>
             </Article>
-        </section>
+        </Section>
 
-        <Section>
-            <SubTitle>Candidatos:</SubTitle>
+        <SubTitle>Candidatos:</SubTitle>
+        <SectionCenter>
             {tripDetails.approved && tripDetails.approved[0] ?
             tripDetails.approved.map((candidate) => {
                 return (
@@ -183,9 +218,7 @@ export default function TripDetailsPage() {
                 )
             }): <p>Nenhum candidato aprovado</p>
             }
-
-
-        </Section>
+        </SectionCenter>
 
         <section>      
             <SubTitle>Inscrições para analise:</SubTitle>

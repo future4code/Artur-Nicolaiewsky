@@ -18,6 +18,10 @@ const MainContainer = styled.section`
   border-radius: 10px;
   padding: 2vh 1vw;
   box-shadow: 1px 1px 10px 1px black;
+  
+  @media(max-width: 800px) {
+      width: 70vw;
+    }
 `
 
 const Title = styled.h2`
@@ -34,6 +38,10 @@ const Input = styled.input`
   border: none;
   border-radius: 5px;
   box-shadow: 0.5px 0.5px 5px 0.1px grey;
+  
+  @media(max-width: 800px) {
+      width: 40vw;
+    }
 `
 
 const Send = styled.button`
@@ -53,6 +61,11 @@ const Send = styled.button`
     
   background: #6ec6ff;
   }
+
+  
+  @media(max-width: 800px) {
+      width: 30vw;
+    }
 
 `
 
@@ -102,7 +115,6 @@ export default function LoginPage() {
       localStorage.setItem("token", res.data.token)
       localStorage.setItem("email", inputLogin.email)
       goToPainel(history)
-      window.location.reload()
     })
 
     .catch((err) => {

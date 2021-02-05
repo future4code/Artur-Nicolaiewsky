@@ -18,6 +18,11 @@ const MainContainer = styled.section`
   border-radius: 10px;
   padding: 2vh 1vw;
   box-shadow: 1px 1px 10px 1px black;
+
+  
+  @media(max-width: 800px) {
+      width: 80vw;
+    }
 `
 
 const Title = styled.h2`
@@ -34,6 +39,10 @@ const Input = styled.input`
   border: none;
   border-radius: 5px;
   box-shadow: 0.5px 0.5px 5px 0.1px grey;
+
+  @media(max-width: 800px) {
+      width: 40vw;
+    }
 `
 
 const Select = styled.select`
@@ -43,6 +52,12 @@ const Select = styled.select`
   border: none;
   border-radius: 5px;
   box-shadow: 0.5px 0.5px 5px 0.1px grey;
+
+  
+  @media(max-width: 800px) {
+      width: 45vw;
+      margin-bottom: 3vh;
+    }
 `
 
 const Send = styled.button`
@@ -62,6 +77,10 @@ const Send = styled.button`
     
   background: #6ec6ff;
   }
+
+  @media(max-width: 800px) {
+      width: 30vw;
+    }
 `
 
 export default function ApplicationFormPage() {
@@ -143,9 +162,6 @@ export default function ApplicationFormPage() {
                   <Input value={inputToSub.profession} onChange={onChangeInputToSub}  pattern={"[a-zA-Z ]{5,}"} title={"A profissão precisa ter 5 ou mais caracteres e não pode conter números"} name={"profession"} placeholder={"Ex: Programador"} required/>
 
                 <Label>País:</Label>
-                  {/* <Input value={inputToSub.country} onChange={onChangeInputToSub} name={"country"} placeholder={"Ex: Brasil"} required/> */}
-
-
                   <Select onChange={onChangeInputToSub} name={"country"} required>
                 <option selected disabled>Selecione seu país</option>
                 {countrieList ? countrieList.map((country) => {
@@ -157,8 +173,6 @@ export default function ApplicationFormPage() {
                     <option value="Buscando Países...">Buscando Países...</option>
                 }
               </Select>
-
-
 
             <div>
               <Label>Viagem pretendida:</Label>

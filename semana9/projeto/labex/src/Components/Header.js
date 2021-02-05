@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import {useHistory} from 'react-router-dom'
 import {goToLogin, goToHome, goToPainel} from '../Router/Coordinates'
+import { useState } from 'react'
 
 const HeaderContainer = styled.header`
   height: 5vh;
@@ -15,13 +16,42 @@ const HeaderContainer = styled.header`
 const NavBox = styled.nav`
   display: flex;
   align-items: center;
+
+  
+  @media(max-width: 800px) {
+      display: none;
+    }
 `
 
 const NavEmail = styled.p`
   margin: 0 22vw;
+
+  
+  @media(max-width: 800px) {
+      display: none;
+    }
 `
 
 const NavButton = styled.button`
+  font-size: 1rem;
+  background: none;
+  border: none;;
+  border-bottom: solid 1px;
+  margin: 0 1vw;
+  outline: none;
+  cursor: pointer;
+
+  &:hover{
+    color: grey;
+  }
+
+  
+  @media(max-width: 800px) {
+      display: none;
+    }
+`
+
+const NavButtonLogin = styled.button`
   font-size: 1rem;
   background: none;
   border: none;;
@@ -55,6 +85,14 @@ const Logo = styled.button`
   }
 `
 
+const DropMenu = styled.select`
+  display:none;
+  
+  @media(max-width: 800px) {
+      display: initial;
+    }
+`
+
 export default function Header() {
 
     const history = useHistory()
@@ -69,26 +107,43 @@ export default function Header() {
       window.location.reload()
     }
 
+    const onChangeFunction = (e) => {
+      let valueFunction = e.target.value
+
+      if(valueFunction === "1") {
+        goToPainel(history)
+      } else if(valueFunction === "2"){
+        quit()
+      }
+    }
+
   return (
     <HeaderContainer>
-      <Logo onClick={() => goToHome(history)}>LabeX</Logo>
+      <Logo onClick={() => goToHome(history)} title="Voltar para o menu">LabeX</Logo>
      {
 
       token === null 
      
      ? 
      
-      <NavButton onClick={() => goToLogin(history)}>Login</NavButton> 
+      <NavButtonLogin onClick={() => goToLogin(history)}>Login</NavButtonLogin> 
      
      :
      
-     
+     <div>
       <NavBox>
         <NavEmail>Bem vindo, {email}</NavEmail>
         <NavButton onClick={() => goToPainel(history)}>Painel de Controle</NavButton>
         <NavButton onClick={quit}>Sair</NavButton>
       </NavBox>
 
+      <DropMenu onChange={onChangeFunction}>
+        <option selected disabled>Dropbox</option>
+        <option value="1">Painel de Controle</option>
+        <option value="2">Sair</option>
+      </DropMenu>
+
+      </div>
     } 
     </HeaderContainer>
   )

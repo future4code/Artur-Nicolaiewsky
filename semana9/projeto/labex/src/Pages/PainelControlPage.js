@@ -17,6 +17,10 @@ const MainContainer = styled.section`
   border-radius: 10px;
   padding: 2vh 1vw;
   box-shadow: 1px 1px 10px 1px black;
+  
+  @media(max-width: 800px) {
+      width: 80vw;
+    }
 `
 
 const Grid = styled.div`
@@ -25,6 +29,10 @@ const Grid = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
   margin: 1rem;
+  
+  @media(max-width: 800px) {
+    grid-template-columns: 1fr;
+  }
 `
 
 const Title = styled.h1`
@@ -50,6 +58,10 @@ const Article = styled.article`
   &:hover {
     background: whitesmoke;
   }
+  
+  @media(max-width: 800px) {
+      width: 60vw;
+    }
 `
 
 const Send = styled.button`
@@ -69,6 +81,11 @@ const Send = styled.button`
     
   background: #6ec6ff;
   }
+
+  
+  @media(max-width: 800px) {
+      width: 30vw;
+    }
 `
 
 const Name = styled.p`
